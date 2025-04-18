@@ -1,0 +1,88 @@
+/* Estilos generales */
+.FormularioCarga {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para los inputs, textarea y select */
+.FormularioCarga label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+}
+
+.FormularioCarga input,
+.FormularioCarga textarea,
+.FormularioCarga select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.FormularioCarga input:focus,
+.FormularioCarga textarea:focus,
+.FormularioCarga select:focus {
+    border-color: #1fac92;
+    outline: none;
+}
+
+.FormularioCarga textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Estilo para el botón */
+.FormularioCarga button {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #1fac92, #088260);
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.FormularioCarga button:hover {
+    background: linear-gradient(135deg, #088260, #054134);
+    transform: scale(1.02);
+}
+
+/* Estilo para la vista previa */
+.vista-previa {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.vista-previa img,
+.vista-previa video {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.vista-previa audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .FormularioCarga {
+        max-width: 90%;
+    }
+}
