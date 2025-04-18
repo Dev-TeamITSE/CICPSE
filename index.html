@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrimonio - Iniciar Sesión</title>
+    <title>CICPSE</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -11,20 +12,22 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
-<body class="flex h-screen">
-    <div class="w-1/2 bg-red-500 bg-cover bg-center bg-[url('/img/bandera.jpg')] hidden md:flex">
-    </div>
+
+<body class="flex items-center justify-center h-screen">
     <div class="w-full md:w-1/2 flex justify-center items-center">
+
         <div class="flex flex-col justify-center items-center menu py-5 px-8">
             <img src="img/logo.png" alt="">
+
+            <!-- Acceso -->
             <div class="my-5 text-center">
                 <h3 class="text-4xl font-bold">Iniciar Sesión</h3>
-                <p class="uppercase text-xs font-semibold">Completar el formulario</p>
             </div>
             <div class="my-5 w-10/12 space-y-2">
                 <div class="flex items-center gap-2 py-1 px-3 border bg-white hover:border-red-500">
                     <ion-icon name="person" class="text-xl"></ion-icon>
-                    <input type="email" name="" id="emailBox" placeholder="Correo electrónico" class="outline-none w-full">
+                    <input type="email" name="" id="emailBox" placeholder="Correo electrónico"
+                        class="outline-none w-full">
                 </div>
                 <div class="flex items-center gap-2 py-1 px-3 border bg-white hover:border-red-500">
                     <ion-icon name="key" class="text-xl"></ion-icon>
@@ -36,13 +39,17 @@
                     <input type="checkbox" name="" id="">
                     <p>Recordarme</p>
                 </div>
-                <a href="" class="text-blue-700">¿Olvidaste la contraseña?</a>
+                <a href="" class="text-red-700">¿Olvidaste la contraseña?</a>
             </div>
             <div class="my-5">
-                <a id="loginBtn" onclick="login()" class="cursor-pointer bg-blue-500 py-1 px-10 text-white font-semibold uppercase hover:bg-blue-600">Ingresar</a>
+                <a id="loginBtn" onclick="login()"
+                    class="cursor-pointer bg-blue-800 py-1 px-14 text-white font-semibold uppercase hover:bg-blue-500">Ingresar</a>
+
             </div>
         </div>
     </div>
+
     <script src="scripts/script.js"></script>
 </body>
+
 </html>
