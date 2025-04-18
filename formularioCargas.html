@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/formularioCargas.css">
+  <link rel="icon" type="image/logo" href="/img/favi_patrimonio.png" />
+
+  <title>Formulario Cargas</title>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-white shadow-md px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center">
+      <img src="img/logo.png" alt="Logo" class="w-full h-10 mr-2 object-contain">
+      <div class="flex items-center gap-2">
+        <ion-icon name="person-circle" class="text-3xl"></ion-icon>
+        <p class="uppercase text-xs font-semibold">Formulario de Cargas</p>
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-6 relative">
+      <div class="group relative">
+        <button class="flex items-center text-gray-700 hover:text-blue-600">
+          <ion-icon name="albums-outline" class="text-2xl mr-1"></ion-icon>
+          <span>Colecciones</span>
+          <ion-icon name="chevron-down-outline" class="text-xl ml-1"></ion-icon>
+        </button>
+        <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-lg py-2 w-40">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+            <ion-icon name="color-palette-outline" class="mr-2"></ion-icon> Bellas Artes
+          </a>
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+            <ion-icon name="earth-outline" class="mr-2"></ion-icon> Antropología
+          </a>
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+            <ion-icon name="book-outline" class="mr-2"></ion-icon> Historia
+          </a>
+        </div>
+      </div>
+
+      <a href="index.html" class="flex items-center text-gray-700 hover:text-blue-600">
+        <ion-icon name="log-in-outline" class="text-2xl mr-1"></ion-icon>
+        <span>Salir</span>
+      </a>
+    </div>
+  </header>
+
+  <!DOCTYPE html>
+  <html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Cargas</title>
+    <link rel="stylesheet" href="css/formularioCargas.css">
+  </head>
+
+  <body>
+
+    <form id="formularioCargas" class="FormularioCarga">
+      <label>
+        Título:
+        <input type="text" id="titulo" required>
+      </label>
+
+      <label>
+        Descripción:
+        <textarea id="descripcion" required></textarea>
+      </label>
+
+      <label>
+        Área:
+        <select id="area" required>
+          <option value="">Selecciona un Área</option>
+          <option value="Historia">Historia</option>
+          <option value="Antropología">Antropología</option>
+          <option value="BellasArtes">Bellas Artes</option>
+        </select>
+      </label>
+
+      <label>
+        Contraseña:
+        <input type="password" id="contraseña" required>
+      </label>
+
+      <label>
+        Archivo:
+        <input type="file" id="archivo" accept="image/*,audio/*,video/*" required>
+      </label>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+      document.getElementById("formularioCargas").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const titulo = document.getElementById("titulo").value;
+        const descripcion = document.getElementById("descripcion").value;
+        const area = document.getElementById("area").value;
+        const contraseña = document.getElementById("contraseña").value;
+        const archivo = document.getElementById("archivo").files[0];
+
+        const contraseñasValidas = {
+          Historia: 'his',
+          Antropología: 'antro',
+          BellasArtes: 'bella',
+        };
+
+        if (!titulo || !descripcion || !archivo || !area || !contraseña) {
+          alert("Todos los campos son obligatorios");
+          return;
+        }
+
+        if (contraseña !== contraseñasValidas[area]) {
+          alert("Contraseña incorrecta para el área seleccionada");
+          return;
+        }
+
+        const nuevaCarga = {
+          id: Date.now(),
+          titulo: titulo,
+          descripcion: descripcion,
+          area: area,
+          link: URL.createObjectURL(archivo),
+          type: archivo.type,
+          createdAt: new Date().toISOString().split("T")[0]
+        };
+
+        console.log("Carga enviada:", nuevaCarga);
+
+        document.getElementById("formularioCargas").reset();
+        alert("Carga enviada con éxito!");
+      });
+    </script>
+
+    <form id="carga-form">
+      <input type="text" id="titulo" placeholder="Título" required>
+      <textarea id="contenido" placeholder="Contenido" required></textarea>
+      <select id="area">
+        <option value="bellas-artes">Bellas Artes</option>
+        <option value="antropologia">Antropología</option>
+        <option value="historia">Historia</option>
+      </select>
+      <button type="submit">Guardar</button>
+    </form>
+
+    <script>
+      document.getElementById("carga-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const titulo = document.getElementById("titulo").value;
+        const contenido = document.getElementById("contenido").value;
+        const area = document.getElementById("area").value;
+
+        const nuevoItem = { titulo, contenido };
+
+        let datos = JSON.parse(localStorage.getItem(area)) || [];
+        datos.push(nuevoItem);
+        localStorage.setItem(area, JSON.stringify(datos));
+
+        alert("Información guardada correctamente");
+      });
+    </script>
+
+
+  </body>
+
+  </html>
