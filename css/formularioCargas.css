@@ -1,8 +1,19 @@
+body {
+    background: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+}
+
 /* Estilos generales */
 .FormularioCarga {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
+    width: 100%;
+    max-width: 80%;
+    margin: 5px auto;
+    padding: 3px;
     background: #f1f1f1;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -16,12 +27,19 @@
     color: #333;
 }
 
+h1 {
+    color: rgb(44, 7, 112);
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
 .FormularioCarga input,
 .FormularioCarga textarea,
 .FormularioCarga select {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 5px;
+    margin-top: 3px;
     border: 2px solid #ddd;
     border-radius: 6px;
     font-size: 16px;
@@ -31,7 +49,7 @@
 .FormularioCarga input:focus,
 .FormularioCarga textarea:focus,
 .FormularioCarga select:focus {
-    border-color: #1fac92;
+    border-color: #0a021d;
     outline: none;
 }
 
@@ -40,14 +58,21 @@
     height: 100px;
 }
 
+h2 {
+    color: rgb(44, 7, 112);
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
 /* Estilo para el botón */
-.FormularioCarga button {
+.button {
     display: block;
-    width: 100%;
-    background: linear-gradient(135deg, #1fac92, #088260);
+    float: right;
+    width: 30%;
+    background: linear-gradient(33deg, #e00e0e, #1b0359);
     color: white;
     font-size: 18px;
-    padding: 10px;
+    padding: 3px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -55,8 +80,52 @@
     transition: background 0.3s, transform 0.1s;
 }
 
-.FormularioCarga button:hover {
-    background: linear-gradient(135deg, #088260, #054134);
+.button:hover {
+    background: linear-gradient(103deg, #1b0359, white);
+    transform: scale(1.02);
+}
+
+/* Estilo para el botónId */
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor-boton label {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333;
+}
+
+
+.contenedor-boton input {
+    width:80%;
+    padding: 5px;
+    margin-top: 3px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+.buttonId {
+    display: block;
+    width: 30%;
+    background: rgb(18, 18, 100);
+    color: white;
+    font-size: 18px;
+    padding: 1px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.buttonId:hover {
+    background: rgb(94, 94, 158);
     transform: scale(1.02);
 }
 
