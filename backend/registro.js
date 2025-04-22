@@ -68,7 +68,10 @@ async function agregarUsuario() {
         });
 
         if (response.ok) {
-            Swal.fire("Éxito", "Usuario agregado exitosamente", "success");
+            Swal.fire("Éxito", "Usuario agregado exitosamente", "success").then(() => {
+                window.location.href = "welcome.html"; // Redirección después del registro exitoso
+            });
+
             obtenerListado();
             limpiarCampos();
         }
