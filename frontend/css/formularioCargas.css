@@ -8,15 +8,29 @@ body {
     width: 100vw;
 }
 
-/* Estilos generales */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Distribuye los formularios de manera uniforme */
+}
+
 .FormularioCarga {
-    width: 100%;
+    width: 23%; /* Ajusta para que entren al menos 4 formularios en una línea */
+    margin: 5px;
+    padding: 3px;
+    background: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* .FormularioCarga {
+    width: 50%;
     max-width: 80%;
     margin: 5px auto;
     padding: 3px;
     background: #f1f1f1;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
 }
 
 /* Estilos para los inputs, textarea y select */
@@ -65,12 +79,12 @@ h2 {
     text-align: center;
 }
 /* Estilo para el botón */
-.button {
+.buttonId {
     display: block;
     float: right;
     width: 30%;
-    background: linear-gradient(33deg, #e00e0e, #1b0359);
-    color: white;
+    background: linear-gradient(100deg, #1b0359, #e00e0e, #f4f3f5, #e00e0e,#1b0359);
+    color: black;
     font-size: 18px;
     padding: 3px;
     border: none;
@@ -80,12 +94,6 @@ h2 {
     transition: background 0.3s, transform 0.1s;
 }
 
-.button:hover {
-    background: linear-gradient(103deg, #1b0359, white);
-    transform: scale(1.02);
-}
-
-/* Estilo para el botónId */
 .contenedor-boton {
     display: flex;
     justify-content: center;
@@ -93,36 +101,6 @@ h2 {
     height: 100vh;
 }
 
-.contenedor-boton label {
-    display: block;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #333;
-}
-
-
-.contenedor-boton input {
-    width:80%;
-    padding: 5px;
-    margin-top: 3px;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-.buttonId {
-    display: block;
-    width: 30%;
-    background: rgb(18, 18, 100);
-    color: white;
-    font-size: 18px;
-    padding: 1px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: background 0.3s, transform 0.1s;
-}
 
 .buttonId:hover {
     background: rgb(94, 94, 158);

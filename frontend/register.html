@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CICPSE - Registro</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/registro.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -15,37 +15,51 @@
 
 <body class="flex items-center justify-center h-screen">
     <div class="w-full md:w-1/2 flex justify-center items-center">
-
         <div class="flex flex-col justify-center items-center menu py-5 px-8">
             <img src="img/logo.png" alt="">
 
             <!--Formulario de registro -->
             <div class="my-5 text-center">
-                <h3 class="text-4xl font-bold">Registro</h3>
+                <h3 class="text-4xl font-bold">Registro de Usuarios</h3>
             </div>
             <div class="my-5 w-10/12 space-y-2">
-                <div class="flex items-center gap-2 py-1 px-3 border bg-white hover:border-red-500">
+                <div class="flex items-center gap-2 py-2 px-3 border bg-white hover:border-red-500">
                     <ion-icon name="person" class="text-xl"></ion-icon>
-                    <input type="email" name="" id="emailBox" placeholder="Correo electrónico"
+                    <input type="text" id="nombreCompletoBox" placeholder="Nombre y Apellido"
                         class="outline-none w-full">
                 </div>
-                <div class="flex items-center gap-2 py-1 px-3 border bg-white hover:border-red-500">
-                    <ion-icon name="key" class="text-xl"></ion-icon>
-                    <input type="password" name="" id="passBox" placeholder="Contraseña" class="outline-none w-full">
+                <div class="flex items-center gap-2 py-2 px-3 border bg-white hover:border-red-500">
+                    <ion-icon name="mail" class="text-xl"></ion-icon>
+                    <input type="email" id="emailBox" placeholder="Correo electrónico" class="outline-none w-full">
                 </div>
+                <div class="flex items-center gap-2 py-2 px-3 border bg-white hover:border-red-500">
+                    <ion-icon name="key" class="text-xl"></ion-icon>
+                    <input type="password" id="passBox" placeholder="Contraseña" class="outline-none w-full">
+                </div>
+                <div class="flex items-center gap-2 py-2 px-3 border bg-white hover:border-red-500">
+                    <ion-icon name="briefcase" class="text-xl"></ion-icon>
+                    <select id="areaBox" class="outline-none w-full">
+                        <option value="" disabled selected>Selecciona un área</option>
+                        <option value="Historia">Historia</option>
+                        <option value="Bellas Artes">Bellas Artes</option>
+                        <option value="Antropología">Antropología</option>
+                    </select>
+                </div>
+
             </div>
 
             <div class="my-5">
-                <a id="loginBtn" onclick="user()"
-                    class="cursor-pointer bg-blue-800 py-1 px-14 text-white font-semibold uppercase hover:bg-blue-500">Registrar</a>
-
+                <button id="registerBtn" onclick="agregarUsuario()"
+                    class="cursor-pointer bg-blue-800 py-2 px-14 text-white font-semibold uppercase hover:bg-blue-500">
+                    Registrar
+                </button>
             </div>
         </div>
     </div>
 
+    <script src="../backend/registro.js"></script>
     <script src="scripts/script.js"></script>
-    
-</body>
 
+</body>
 
 </html>

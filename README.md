@@ -6,3 +6,5 @@ Dentro de este repositorio trabajaremos la parte Institucional del proyecto.
 - Martin Beltran
 - Ivana Paez Buenvecino
 - Sandra Sanchez
+
+conectar al servidor  node server.js

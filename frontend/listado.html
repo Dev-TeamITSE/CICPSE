@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/listado.css">
+    <title>CICPSE-Usuarios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <header class="bg-white shadow-md px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="img/logo.png" alt="Logo" class="w-full h-10 mr-2 object-contain">
+            <div class="flex items-center gap-2">
+                <ion-icon name="person-circle" class="text-3xl"></ion-icon>
+                <p class="uppercase text-xs font-semibold">Administrador</p>
+            </div>
+
+        </div>
+
+        <div class="flex items-center space-x-6 relative">
+            <div class="group relative">
+                <button class="flex items-center text-gray-700 hover:text-blue-600">
+                    <ion-icon name="albums-outline" class="text-2xl mr-1"></ion-icon>
+                    <span>Colecciones</span>
+                    <ion-icon name="chevron-down-outline" class="text-xl ml-1"></ion-icon>
+                </button>
+                <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-lg py-2 w-40">
+                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+                        <ion-icon name="color-palette-outline" class="mr-2"></ion-icon> Bellas Artes
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+                        <ion-icon name="earth-outline" class="mr-2"></ion-icon> Antropología
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+                        <ion-icon name="book-outline" class="mr-2"></ion-icon> Historia
+                    </a>
+                </div>
+            </div>
+
+            <a href="welcome.html" class="flex items-center text-gray-700 hover:text-blue-600">
+                <ion-icon name="log-in-outline" class="text-2xl mr-1"></ion-icon>
+                <span>Inicio</span>
+            </a>
+
+            <a href="formularioCargas.html" class="flex items-center text-gray-700 hover:text-blue-600">
+                <ion-icon name="log-in-outline" class="text-2xl mr-1"></ion-icon>
+                <span>Nueva Carga</span>
+            </a>
+
+            <a href="index.html" class="flex items-center text-gray-700 hover:text-blue-600">
+                <ion-icon name="log-in-outline" class="text-2xl mr-1"></ion-icon>
+                <span>Salir</span>
+            </a>
+
+        </div>
+
+    </header>
+
+    <h3 class="text-center text-5xl font-semibold mt-5">Usuarios Registrados</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre y Apellido</th>
+                <th>Correo</th>
+                <th>Área</th>
+                <br>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="listaUsuarios"></tbody>
+    </table>
+
+    <script src="../backend/registro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

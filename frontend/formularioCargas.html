@@ -19,21 +19,61 @@
     <div class="flex items-center">
       <img src="img/logo.png" alt="Logo" class="w-full h-10 mr-2 object-contain">
       <div class="flex items-center gap-2">
-
-        <p class="text-xs font-semibold">Centro de Interpretación y Conservación del Patrimonio
-          de Santiago del Estero (CICPSE)</p>
+        <ion-icon name="person-circle" class="text-3xl"></ion-icon>
+        <p class="uppercase text-xs font-semibold">Administrador</p>
       </div>
+
     </div>
+
+    <div class="flex items-center space-x-6 relative">
+      <div class="group relative">
+        <button class="flex items-center text-gray-700 hover:text-blue-600">
+          <ion-icon name="albums-outline" class="text-2xl mr-1"></ion-icon>
+          <span>Colecciones</span>
+          <ion-icon name="chevron-down-outline" class="text-xl ml-1"></ion-icon>
+        </button>
+        <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-lg py-2 w-40">
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+            <ion-icon name="color-palette-outline" class="mr-2"></ion-icon> Bellas Artes
+          </a>
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+            <ion-icon name="earth-outline" class="mr-2"></ion-icon> Antropología
+          </a>
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+            <ion-icon name="book-outline" class="mr-2"></ion-icon> Historia
+          </a>
+        </div>
+      </div>
 
       <a href="welcome.html" class="flex items-center text-gray-700 hover:text-blue-600">
         <ion-icon name="log-in-outline" class="text-2xl mr-1"></ion-icon>
         <span>Inicio</span>
       </a>
+
+      <a href="listado.html" class="flex items-center text-gray-700 hover:text-blue-600">
+        <ion-icon name="log-in-outline" class="text-2xl mr-1"></ion-icon>
+        <span>Usuarios</span>
+      </a>
+
+      <a href="formularioCargas.html" class="flex items-center text-gray-700 hover:text-blue-600">
+        <ion-icon name="log-in-outline" class="text-2xl mr-1"></ion-icon>
+        <span>Nueva Carga</span>
+      </a>
+
+      <a href="index.html" class="flex items-center text-gray-700 hover:text-blue-600">
+        <ion-icon name="log-in-outline" class="text-2xl mr-1"></ion-icon>
+        <span>Salir</span>
+      </a>
+
     </div>
+
   </header>
 
   <body>
-    <h1>FICHA DE REGISTRO INTERNA PARA IDENTIFICACIÓN DE OBJETOS </h1>
+    <h1 class="text-xl font-semibold">Centro de Interpretación y Conservación del Patrimonio
+      de Santiago del Estero (CICPSE)</h1>
+
+    <h2>FICHA DE REGISTRO INTERNA PARA IDENTIFICACIÓN DE OBJETOS </h2>
 
     <form id="nroId" class="contenedor-boton">
       <label>
@@ -41,11 +81,11 @@
         <input type="number" id="nroId" required>
       </label>
     </form>
-
-
-    <form id="datosIdentificacion" class="FormularioCarga">
-      <h2>DATOS DE IDENTIFICACIÓN:</h2>
-      <label>
+    <div class="container">
+      <form id="datosIdentificacion" class="FormularioCarga">
+        <details>
+          <summary><h2>DATOS DE IDENTIFICACIÓN:</h2></summary>
+          <label>
         N° de sigla CICPSE:
         <input type="number" id="nroSigla" required>
         Sigla RENICOA:
@@ -67,12 +107,13 @@
         Otros datos:
         <input type="text" id="otrosDatos">
       </label>
-      <button class="button" type="submit">Guardar</button>
+      </details>      
     </form>
 
     <form id="datosProcedencia" class="FormularioCarga">
-      <h2>DATOS DE PROCEDENCIA:</h2>
-      <label>
+      <details>
+        <summary><h2>DATOS DE PROCEDENCIA:</h2></summary> 
+        <label>
         País:
         <input type="text" id="pais">
         Provincia/Región:
@@ -86,12 +127,13 @@
         Datos contextuales:
         <input type="text" id="datosContextuales">
       </label>
-      <button class="button" type="submit">Guardar</button>
+      </details>
     </form>
 
     <form id="descripcionOjbeto" class="FormularioCarga">
-      <h2>DESCRIPCIÓN DEL OBJETO:</h2>
-      <h2>Medidas ( en cm.)</h2>
+      <details>
+        <summary><h2>DESCRIPCIÓN DEL OBJETO:</h2>
+          <h2>Medidas ( en cm.)</h2></summary>
       <label>
         Altura/Largo:
         <input type="number" id="alturaLargo">
@@ -107,34 +149,35 @@
         <input type="text" id="otrasMedidas">
       </label>
       <h2>Descripción:</h2>
-    <label>
-      Forma:
+      <label>
+        Forma:
         <input type="text" id="forma">
-      Técnica:
+        Técnica:
         <input type="text" id="tecnica">
         Descripción:
         <input type="text" id="descripcion">
         Adscripción cultural/temporal:
         <input type="text" id="dscripciónCulturalTemporal">
-    </label>
-      <button class="button" type="submit">Guardar</button>
+      </label>
+      </details>
     </form>
 
     <form id="estadoConservacion" class="FormularioCarga">
-      <h2>ESTADO DE CONSERVACIÓN: </h2>
+      <details>
+        <summary><h2>ESTADO DE CONSERVACIÓN: </h2></summary>
       <label for="estadoConservacion">
         Estado de Conservación:
         <select id="estadoConservacion" name="estado" required>
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="malo">Malo</option>
-            <option value="regular">Regular</option>
-            <option value="bueno">Bueno</option>
-            <option value="muy bueno">Muy Bueno</option>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="malo">Malo</option>
+          <option value="regular">Regular</option>
+          <option value="bueno">Bueno</option>
+          <option value="muy bueno">Muy Bueno</option>
         </select>
-    </label>
-    <label for="estadoEstructural">
-      Estado Estructural:
-      <select id="estadoEstructural" name="estado" required>
+      </label>
+      <label for="estadoEstructural">
+        Estado Estructural:
+        <select id="estadoEstructural" name="estado" required>
           <option value="" disabled selected>Selecciona una opción</option>
           <option value="entero">Entero</option>
           <option value="fragmentado">Fragmentado</option>
@@ -143,54 +186,55 @@
           <option value="rajadoAgrietado">Rajado/Agrietado</option>
           <option value="restaurado">Restaurado</option>
           <option value="deformado">Deformado</option>
-      </select>
-  </label>
-  <label for="estadoSuperficie">
-    Estado de Superficie:
-    <select id="estadoSuperficie" name="estado" required>
-        <option value="" disabled selected>Selecciona una opción</option>
-        <option value="sinDeterioro">Sin deterioro</option>
-        <option value="suciedadSuperficial">Suciedad Superficial</option>
-        <option value="depositosForaneos">Depósitos foraneos</option>
-        <option value="desgaste">Desgaste</option>
-        <option value="perdida">Pérdida</option>
-        <option value="manchas">Manchas</option>
-    </select>
-</label>
-<label>
-Características del deterioro:
-<label for="estadoCaracteristicas">
-  Químico:
-  <select id="quimico" name="estado" required>
-      <option value="" disabled selected>Selecciona una opción</option>
-      <option value="sales">Sales</option>
-      <option value="oxidosCorrosion">Óxidos/Corrosión</option>
-    </select>
-  Mecánico:
-    <select id="mecanico" name="estado" required>
-      <option value="" disabled selected>Selecciona una opción</option>
-      <option value="golpe">Golpe</option>
-      <option value="corte">Corte</option>
-      </select>
-      Biológico:
-      <select id="biologico" name="estado" required>
-        <option value="" disabled selected>Selecciona una opción</option>
-      <option value="vegetal">Vegetal</option>
-      <option value="animal">Animal</option>
-      <option value="insecto">Insecto</option>
-      <option value="mohoHongo">Moho/Hongo</option>
-  </select>
-</label>
-Intervenciones:
-<input type="text" id="intervenciones" required>
-Observaciones:
-<input type="text" id="observaciones">
-</label>
-      <button class="button" type="submit">Guardar</button>
+        </select>
+      </label>
+      <label for="estadoSuperficie">
+        Estado de Superficie:
+        <select id="estadoSuperficie" name="estado" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="sinDeterioro">Sin deterioro</option>
+          <option value="suciedadSuperficial">Suciedad Superficial</option>
+          <option value="depositosForaneos">Depósitos foraneos</option>
+          <option value="desgaste">Desgaste</option>
+          <option value="perdida">Pérdida</option>
+          <option value="manchas">Manchas</option>
+        </select>
+      </label>
+      <label>
+        Características del deterioro:
+        <label for="estadoCaracteristicas">
+          Químico:
+          <select id="quimico" name="estado" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="sales">Sales</option>
+            <option value="oxidosCorrosion">Óxidos/Corrosión</option>
+          </select>
+          Mecánico:
+          <select id="mecanico" name="estado" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="golpe">Golpe</option>
+            <option value="corte">Corte</option>
+          </select>
+          Biológico:
+          <select id="biologico" name="estado" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="vegetal">Vegetal</option>
+            <option value="animal">Animal</option>
+            <option value="insecto">Insecto</option>
+            <option value="mohoHongo">Moho/Hongo</option>
+          </select>
+        </label>
+        Intervenciones:
+        <input type="text" id="intervenciones" required>
+        Observaciones:
+        <input type="text" id="observaciones">
+      </label>
+      </details>
     </form>
 
     <form id="datosAdicionales" class="FormularioCarga">
-     <h2>DATOS ADICIONALES:</h2> 
+      <details>
+        <summary><h2>DATOS ADICIONALES:</h2></summary>
       <label>
         Intervenciones de investigación:
         <input type="text" id="intervencionesInvestigacion">
@@ -205,28 +249,30 @@ Observaciones:
         Historia del objeto en la institución (a quien perteneció, actas de ingreso, etc):
         <input type="text" id="historiaObjeto">
         Otra información:
-        <input type="text" id="otraInformacion">     
+        <input type="text" id="otraInformacion">
       </label>
-      <button class="button" type="submit">Guardar</button>
+      </details>
     </form>
 
     <form id="fotografías" class="FormularioCarga" enctype="multipart/form-data">
-      <h2>FOTOGRAFÍAS:</h2>      
+      <details>
+        <summary><h2>FOTOGRAFÍAS:</h2></summary>
       <label>
-          Del objeto sin intervención:
-          <input type="file" id="sinIntervencion" name="sinIntervencion" accept="image/*">
-          Del objeto intervenido:
-          <input type="file" id="objetoIntervenido" name="objetoIntervenido" accept="image/*">
-          Rótulos / Detalles:
-          <input type="file" id="rotulosDetalles" name="rotulosDetalles" accept="image/*">
-          Otras fotografías:
-          <input type="file" id="otrasFotografias" name="otrasFotografias" accept="image/*" multiple>
-      </label>      
-      <button class="button" type="submit">Guardar</button>
-  </form>
+        Del objeto sin intervención:
+        <input type="file" id="sinIntervencion" name="sinIntervencion" accept="image/*">
+        Del objeto intervenido:
+        <input type="file" id="objetoIntervenido" name="objetoIntervenido" accept="image/*">
+        Rótulos / Detalles:
+        <input type="file" id="rotulosDetalles" name="rotulosDetalles" accept="image/*">
+        Otras fotografías:
+        <input type="file" id="otrasFotografias" name="otrasFotografias" accept="image/*" multiple>
+      </label>
+      </details>
+    </form>
 
     <form id="datosRegistro" class="FormularioCarga">
-      <h2>DATOS DEL REGISTRO:</h2>
+      <details>
+        <summary><h2>DATOS DEL REGISTRO:</h2></summary>
       <label>
         Fecha del Registro:
         <input type="date" id="fechaRegistro" required>
@@ -238,138 +284,14 @@ Observaciones:
         <input type="text" id="designacion" required>
         Contacto:
         <input type="number" id="contacto" required>
-        <button class="button" type="submit">Guardar</button>
       </label>
+      </details>
     </form>
+  </div>
 
     <div class="contenedor-boton">
       <button class="buttonId">Cargar</button>
     </div>
-
   </body>
-
+  
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <label>
-        Descripción:
-        <textarea id="descripcion" required></textarea>
-      </label>
-
-      <label>
-        Área:
-        <select id="area" required>
-          <option value="">Selecciona un Área</option>
-          <option value="Historia">Historia</option>
-          <option value="Antropología">Antropología</option>
-          <option value="BellasArtes">Bellas Artes</option>
-        </select>
-      </label>
-
-      <label>
-        Contraseña:
-        <input type="password" id="contraseña" required>
-      </label>
-
-      <label>
-        Archivo:
-        <input type="file" id="archivo" accept="image/*,audio/*,video/*" required>
-      </label> -->
-
-<!-- <script>
-      document.getElementById("formularioCargas").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const titulo = document.getElementById("titulo").value;
-        const descripcion = document.getElementById("descripcion").value;
-        const area = document.getElementById("area").value;
-        const contraseña = document.getElementById("contraseña").value;
-        const archivo = document.getElementById("archivo").files[0];
-
-        const contraseñasValidas = {
-          Historia: 'his',
-          Antropología: 'antro',
-          BellasArtes: 'bella',
-        };
-
-        if (!titulo || !descripcion || !archivo || !area || !contraseña) {
-          alert("Todos los campos son obligatorios");
-          return;
-        } -->
-
-<!-- if (contraseña !== contraseñasValidas[area]) {
-          alert("Contraseña incorrecta para el área seleccionada");
-          return;
-        }
-
-        const nuevaCarga = {
-          id: Date.now(),
-          titulo: titulo,
-          descripcion: descripcion,
-          area: area,
-          link: URL.createObjectURL(archivo),
-          type: archivo.type,
-          createdAt: new Date().toISOString().split("T")[0]
-        };
-
-        console.log("Carga enviada:", nuevaCarga);
-
-        document.getElementById("formularioCargas").reset();
-        alert("Carga enviada con éxito!"); -->
-<!-- });
-    </script> -->
-
-<!-- <form id="carga-form">
-      <input type="text" id="titulo" placeholder="Título" required>
-      <textarea id="contenido" placeholder="Contenido" required></textarea>
-      <select id="area">
-        <option value="bellas-artes">Bellas Artes</option>
-        <option value="antropologia">Antropología</option>
-        <option value="historia">Historia</option>
-      </select>
-      <button type="submit">Guardar</button>
-    </form>
-
-    <script>
-      document.getElementById("carga-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const titulo = document.getElementById("titulo").value;
-        const contenido = document.getElementById("contenido").value;
-        const area = document.getElementById("area").value;
-
-        const nuevoItem = { titulo, contenido };
-
-        let datos = JSON.parse(localStorage.getItem(area)) || [];
-        datos.push(nuevoItem);
-        localStorage.setItem(area, JSON.stringify(datos));
-
-        alert("Información guardada correctamente");
-      });
-    </script> -->

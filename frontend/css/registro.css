@@ -1,0 +1,4 @@
+.menu {
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,0) 0%, rgba(189,189,189,1) 41%, rgba(189,189,189,1) 62%, rgba(189,189,189,0) 100%);
+}

@@ -1,0 +1,14 @@
+# Ignorar la carpeta node_modules (depende de cada máquina y no debe subirse)
+node_modules/
+
+# Ignorar variables de entorno y configuraciones sensibles
+.env
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar base de datos local
+database.sqlite
+
+# Ignorar archivos generados por el editor (Ej: VSCode)
+.vscode/
