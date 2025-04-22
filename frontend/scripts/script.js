@@ -2,7 +2,7 @@ function login() {
     const email = document.getElementById('emailBox').value.trim();
     const password = document.getElementById('passBox').value.trim();
 
-    const userEmail = "admin@patrimonio.com";
+    const userEmail = "admin@cicpse.com";
     const userPassword = "devteam24";
 
     if (email === "" || password === "") {
@@ -37,7 +37,7 @@ function login() {
         if (result.isConfirmed) {
             window.location.href = "welcome.html"; // Redirigir a la página de bienvenida
         } else {
-            window.location.href = "registro.html"; // Redirigir a la página de registro
+            window.location.href = "register.html"; // Redirigir a la página de registro
         }
     });
 }
