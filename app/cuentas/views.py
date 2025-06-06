@@ -87,7 +87,7 @@ def users(request):
 
     areas_dict = {}
     for user in users_admitidos:
-        area = user.area if user.area else "Sin asignar"
+        area = user.area if user.area else ""
         if area not in areas_dict:
             areas_dict[area] = []
         areas_dict[area].append(user)
