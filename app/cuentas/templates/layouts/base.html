@@ -49,6 +49,7 @@
 
         {% if request.user.area == "Antropología" or request.user.is_superuser %}
           <a class="navbar-item" href="{% url 'ficha_antropologia:formAntropologia' %}"> Cargar Ficha </a>
+          <a class="navbar-item" href="{% url 'ficha_antropologia:ficha' %}"> Editar Ficha </a>
         {% endif %}
 
         {% if request.user.area == "Historia" or request.user.area == "Bellas Artes" or request.user.is_superuser %}

@@ -1,21 +1,26 @@
 // BOTON DE ACCESO EN HOME
 function login() {
     // Mostrar alerta con opciones
-    Swal.fire({
-        title: "Bienvenido a la Dirección de Patrimonio Cultural",
-        imageUrl: faviconUrl,
-        imageWidth: 100,
-        imageHeight: 100,
-        showCancelButton: true,
-        confirmButtonText: "Ingresar",
-        cancelButtonText: "Registrar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = "/login/"; 
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-            window.location.href = "/register/";
-        }
-    });
+   Swal.fire({
+    title: "Bienvenido a la Dirección de Patrimonio Cultural",
+    imageUrl: faviconUrl,
+    imageWidth: 100,
+    imageHeight: 100,
+    showCancelButton: true,
+    confirmButtonText: "Ingresar",
+    cancelButtonText: "Registrar",
+    customClass: {
+        confirmButton: "button-primary",
+        cancelButton: "button-secondary"
+    }
+}).then((result) => {
+    if (result.isConfirmed) {
+        window.location.href = "/login/";
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+        window.location.href = "/register/";
+    }
+});
+
 }
 
 // BOTON DE LOGIN

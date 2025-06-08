@@ -4,4 +4,4 @@ from .models import Ficha
 class FichaForm(forms.ModelForm):
     class Meta:
         model = Ficha
-        fields = '__all__'
+        fields = ['nro_id', 'nro_sigla_cicpse', 'nombre_coleccion']  # Solo los campos obligatorios

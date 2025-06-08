@@ -132,13 +132,14 @@ input {
     height: 70vh; /* Ocupa toda la altura de la pantalla */
 }
 
-#cargarBtn {
+/* Estilos generales para todos los botones */
+.button {
     display: flex;
     justify-content: center;
     align-items: flex-end; 
     width: 200px;
     height: 50px;
-    background-image: url("/static/img/bandera.jpg");
+    background-image: url("/static/img/bandera.jpg") !important;
     background-size: cover;
     background-position: center;
     color: whitesmoke;
@@ -147,64 +148,73 @@ input {
     text-transform: uppercase;
     border-radius: 8px;
     text-align: center;
-    padding-bottom: 1px; /* Ajuste fino para el texto */
+    padding-bottom: 4px; /* Ajuste fino para el texto */
     cursor: pointer;
     transition: opacity 0.3s ease;
     border: none;
-}
-
-/* Botón de inicio de sesión */
-#loginBtn {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; 
-    width: 200px;
-    height: 50px;
-    background-image: url("/static/img/bandera.jpg");
-    background-size: cover;
-    background-position: center;
-    color: whitesmoke;
-    font-weight: bold;
-    font-size: x-small;
-    text-transform: uppercase;
-    border-radius: 8px;
-    text-align: center;
-    padding-bottom: 1px; /* Ajuste fino para el texto */
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-    border: none;
+    text-decoration: none; /* Evita subrayado en `<a>` */
 }
 
 /* Efecto al pasar el mouse */
-#loginBtn:hover {
-    opacity: 0.8; /* Reduce la opacidad al pasar el cursor */
+.button:hover {
+    opacity: 0.8;
 }
 
+/* Personalización para botones específicos */
 #registerBtn {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; 
-    width: 200px;
-    height: 50px;
-    background-image: url("/static/img/bandera.jpg");
-    background-size: cover;
-    background-position: center;
-    color: whitesmoke;
-    font-weight: bold;
-    font-size: x-small;
-    text-transform: uppercase;
-    border-radius: 8px;
-    text-align: center;
-    padding-bottom: 1px; /* Ajuste fino para el texto */
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-    border: none;
+    background-image: url("/static/img/register.jpg"); /* Imagen específica */
 }
 
-/* Efecto al pasar el mouse */
-#regiterBtn:hover {
-    opacity: 0.8; /* Reduce la opacidad al pasar el cursor */
+#loginBtn {
+    background-image: url("/static/img/login.jpg"); /* Imagen diferente */
 }
+
+#updatePasswordBtn {
+    background-color: #1E40AF; /* Azul fuerte */
+}
+
+/* Personalización específica para el botón de actualizar */
+#updateBtn {
+    background-color: #1E40AF; /* Azul fuerte */
+    color: white;
+    padding: 12px 32px;
+}
+
+/* Personalización específica para el botón de cancelar */
+#cancelBtn {
+    background-color: #b81b1b; /* Gris */
+    color: white;
+    padding: 12px 24px;
+}
+
+.button-primary {
+    background-color: #1E40AF; /* Azul fuerte */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: #3B82F6; /* Azul más claro */
+}
+
+.button-secondary {
+    background-color: #6B7280; /* Gris */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-secondary:hover {
+    background-color: #4B5563; /* Gris más oscuro */
+}
+
 
 .btn-custom {
     width: 100px; /* Ajusta según sea necesario */
