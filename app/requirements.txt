@@ -1,9 +1,20 @@
+pip install -r requirements.txt # Instalar las dependencias del proyecto
+pip freeze > requirements.txt # Actualizar el archivo requirements.txt
+
+
 Django==5.2.1
 pip install django  #instalar Django
 
-python -m pip install Pillow 
-
-python manage.py createsuperuser #crear superusuario
+python -m pip install Pillow #instalar Pillow para manejar imágenes
 python manage.py makemigrations #crear migraciones
 python manage.py migrate #aplicar migraciones
 python manage.py runserver #iniciar el servidor
+
+# docker
+# Construir la imagen
+docker build -t patrimonio-app .
+
+# Ejecutar el contenedor
+docker run -p 8000:8000 patrimonio-app
+
+docker-compose up # Iniciar el proyecto
