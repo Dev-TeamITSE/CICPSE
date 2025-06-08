@@ -9,12 +9,12 @@
 /* Ajustar el cuerpo y la estructura general */
 html, body {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh; /* Usa min-height en vez de height */
     margin: 0;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
-
 
 
 /* Ajustar la barra de navegación */
@@ -88,14 +88,14 @@ html, body {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
-
-
 /* Centrar el contenido en main */
 main {
-    flex-grow: 1; /* Asegura que el contenido empuje el footer hacia abajo */
+    flex-grow: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 form {
@@ -110,6 +110,26 @@ form {
 input {
     width: 80%;
     max-width: 400px;
+}
+
+#columns {
+    flex-grow: 1;
+    min-height: calc(100vh - 120px); /* Ajusta según navbar + footer */
+    max-height: calc(100vh - 120px); /* Define límite para que el scroll solo ocurra dentro */
+    overflow-y: auto; /* Scroll interno para el contenido */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Evita que el contenido se sobreponga */
+}
+
+.py-4 {
+    display: flex;
+    flex-wrap: wrap; /* Permite ajuste en pantallas pequeñas */
+    gap: 100px; /* Espacio entre elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Asegura alineación vertical */
+    height: 70vh; /* Ocupa toda la altura de la pantalla */
 }
 
 #cargarBtn {
@@ -132,8 +152,6 @@ input {
     transition: opacity 0.3s ease;
     border: none;
 }
-
-
 
 /* Botón de inicio de sesión */
 #loginBtn {
@@ -193,23 +211,57 @@ input {
     padding: 8px 12px;
 }
 
+.container-formularios {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr)); /* Dos columnas */
+    gap: 24px;
+    width: 100%;
+    align-items: start;
+    padding: 16px;
+}
+
+/* Última fila con tres formularios */
+.container-formularios:last-child {
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+}
+
+/* Ajuste uniforme para todos los formularios */
+.FormularioCarga {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-grow: 1; 
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: 100%;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .container-formularios {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* Estilos del footer para que se mueva con el contenido */
 footer {
-    position: relative;
     width: 100%;
     background-color: #f3f4f6;
     padding: 15px;
     display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: space-between; /* Separa el texto y las imágenes */
+    align-items: center;
+    justify-content: space-between;
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: auto;
 }
 
 /* Ajustes del texto */
 footer p {
-    font-size: 14px;
+    font-size: 15px;
     color: #4b5563;
     font-weight: bold;
     margin-left: 20px; /* Asegura que el texto esté alineado a la izquierda */

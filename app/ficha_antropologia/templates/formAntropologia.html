@@ -12,14 +12,14 @@
         <h2 class="text-xl font-semibold text-center">Ficha de Registro Interna para Identificación de Objetos</h2>
       </div>
       <!-- Formulario Número de Registro -->
-      <!-- <div class="container w-full"> -->
       <form id="nroId" class="contenedor-boton">
         <label>
           N°:
           <input type="number" id="nroId" required class="border rounded p-2">
         </label>      
-        <!-- Contenedor principal -->
-          <!-- Formulario Datos de Identificación -->
+       
+        <!-- Formulario Datos de Identificación -->
+        <div class="container-formularios">
           <form id="datosIdentificacion" class="FormularioCarga">
             <details class="border rounded-lg p-4 mt-4">
               <summary class="text-xl font-semibold cursor-pointer hover:text-blue-600">Datos de Identificación
@@ -332,10 +332,10 @@
               </div>
             </details>
           </form>
+        </div>
 
           <button id="cargarBtn" class="buttonId" onclick="enviarDatos()">Cargar</button>
       </form>
-      <!-- </div> -->
     </div>
   </div>
 </div>

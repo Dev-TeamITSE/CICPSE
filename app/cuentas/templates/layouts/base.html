@@ -66,10 +66,14 @@
   </nav>
 {% endif %}
 
-  <div id="columns">
-    {% block content %}
-    {% endblock %}
-  </div>
+<main class="flex-grow overflow-hidden">
+    <div id="columns" class="overflow-y-auto">
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+
+
 
   <footer>
     <p>©PatrimonioSGO-2025</p>
