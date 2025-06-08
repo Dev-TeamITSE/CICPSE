@@ -1,4 +1,3 @@
-# 📌 Imports organizados
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
@@ -190,5 +189,3 @@ def bellas_artes(request):
 def historia(request):
     return render(request, 'pages/historia.html')
 
-def formularioAntropologia(request):
-    return render(request, 'fichas/formularioAntropologia.html')

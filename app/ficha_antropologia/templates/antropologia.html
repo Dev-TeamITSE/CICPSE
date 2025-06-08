@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-xl font-semibold">Listado de Fichas - Antropología</h2>
+<table class="table-auto w-full border-collapse border border-gray-300">
+    <thead>
+        <tr class="bg-gray-100">
+            <th class="border px-4 py-2">N° Ficha</th>
+            <th class="border px-4 py-2">Nombre Colección</th>
+            <th class="border px-4 py-2">Tipo Material</th>
+            <th class="border px-4 py-2">Ubicación</th>
+            <th class="border px-4 py-2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ficha in fichas %}
+        <tr>
+            <td class="border px-4 py-2">{{ ficha.nro_id }}</td>
+            <td class="border px-4 py-2">{{ ficha.nombre_coleccion }}</td>
+            <td class="border px-4 py-2">{{ ficha.tipo_material }}</td>
+            <td class="border px-4 py-2">{{ ficha.ubicacion }}</td>
+            <td class="border px-4 py-2">
+                <a href="{% url 'ficha_detalle' ficha.nro_id %}" class="text-blue-500">Ver detalles</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

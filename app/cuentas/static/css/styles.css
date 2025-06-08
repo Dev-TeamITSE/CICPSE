@@ -112,6 +112,27 @@ input {
     max-width: 400px;
 }
 
+#cargarBtn {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    width: 200px;
+    height: 50px;
+    background-image: url("/static/img/bandera.jpg");
+    background-size: cover;
+    background-position: center;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: x-small;
+    text-transform: uppercase;
+    border-radius: 8px;
+    text-align: center;
+    padding-bottom: 1px; /* Ajuste fino para el texto */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    border: none;
+}
+
 
 
 /* Botón de inicio de sesión */
