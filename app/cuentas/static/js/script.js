@@ -72,3 +72,4 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("No se encontró el botón de login.");
     }
 });
+

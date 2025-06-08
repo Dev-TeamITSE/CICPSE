@@ -279,3 +279,38 @@
   </body>
   
 </html>
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+input {
+    width: 80%;
+    max-width: 400px;
+}
+
+#columns {
+    flex-grow: 3;
+    min-height: calc(100vh - 120px); 
+    max-height: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    overflow: auto;
+}
