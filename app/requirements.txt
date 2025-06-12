@@ -1,3 +1,5 @@
+python -m venv .venv
+.\.venv\Scripts\activate
 pip install -r requirements.txt # Instalar las dependencias del proyecto
 pip freeze > requirements.txt # Actualizar el archivo requirements.txt
 
