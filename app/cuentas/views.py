@@ -11,6 +11,15 @@ from .models import CustomUser, Noticia
 def home(request):
     return render(request, 'pages/home.html')
 
+def crear_noticia(request):
+    return render(request, 'noticias/crearnoticia.html')
+
+def ver_noticias(request):
+    return render(request, 'noticias/noticias.html')
+
+def noticias_solicitadas(request):
+    return render(request, 'noticias/solicitudes.html')
+
 # 📌 Autenticación y acceso
 def login_view(request):
     if request.method == "POST":
