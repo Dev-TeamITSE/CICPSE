@@ -1,7 +1,7 @@
-Dentro de este repositorio trabajaremos la parte Institucional del proyecto.
-
-## Integrantes asignados a esta parte del proyecto:
+## Integrantes del proyecto:
 - Emiliano Ainete
 - Martin Beltran
+- Franklin Mendieta
 - Ivana Paez Buenvecino
+- Damian Robles
 - Sandra Sanchez
