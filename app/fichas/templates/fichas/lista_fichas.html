@@ -47,14 +47,14 @@
   <!-- Encabezado -->
   <div class="flex justify-between items-center mb-4">
     <h1 class="text-2xl font-bold">📋 Listado de Fichas Registradas</h1>
-    <a href="{% url 'cargar_ficha' %}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+    <a href="{% url 'fichas:cargar_ficha' %}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
       ➕ Nueva Ficha
     </a>
   </div>
 
 
   <!-- Formulario de eliminación -->
-  <form id="formEliminar" method="POST" action="{% url 'eliminar_fichas' %}">
+  <form id="formEliminar" method="POST" action="{% url 'fichas:eliminar_fichas' %}">
     {% csrf_token %}
     <div class="overflow-x-auto">
       <table class="min-w-full bg-white border border-gray-300 shadow-sm rounded">

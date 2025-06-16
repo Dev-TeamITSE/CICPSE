@@ -48,8 +48,8 @@
         {% endif %}
 
         {% if request.user.area == "Antropología" or request.user.is_superuser %}
-          <a class="navbar-item" href="{% url 'cargar_ficha' %}">Nueva Ficha</a>
-          <a class="navbar-item" href="{% url 'lista_fichas' %}">Registros</a>
+          <a class="navbar-item" href="{% url 'fichas:cargar_ficha' %}">Nueva Ficha</a>
+          <a class="navbar-item" href="{% url 'fichas:lista_fichas' %}">Registros</a>
         {% endif %}
 
         {% if request.user.area == "Historia" or request.user.area == "Bellas Artes" or request.user.is_superuser %}
