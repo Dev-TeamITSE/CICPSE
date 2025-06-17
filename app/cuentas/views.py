@@ -3,22 +3,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from django.http import JsonResponse
-
 from .models import CustomUser, Noticia
 
 # 📌 Función de inicio
 def home(request):
     return render(request, 'pages/home.html')
-
-def crear_noticia(request):
-    return render(request, 'noticias/crearnoticia.html')
-
-def ver_noticias(request):
-    return render(request, 'noticias/noticias.html')
-
-def noticias_solicitadas(request):
-    return render(request, 'noticias/solicitudes.html')
 
 # 📌 Autenticación y acceso
 def login_view(request):
@@ -175,19 +164,6 @@ def update_password(request):
 def noticias_view(request):
     noticias = Noticia.objects.all().order_by('-fecha_publicacion')
     return render(request, 'auth/news.html', {"noticias": noticias})
-
-def obtener_noticias(request):
-    noticias_json = [
-        {
-            "id": noticia.id,
-            "titulo": noticia.titulo,
-            "contenido": noticia.contenido[:200],
-            "fecha": noticia.fecha_publicacion.strftime("%Y-%m-%d"),
-            "portada": noticia.portada.url if noticia.portada else ""
-        }
-        for noticia in Noticia.objects.all().order_by('-fecha_publicacion')
-    ]
-    return JsonResponse(noticias_json, safe=False)
 
 def cargar_noticias_view(request):
     return render(request, 'fichas/cargar_noticias.html')
