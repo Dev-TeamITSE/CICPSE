@@ -1,68 +1,59 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Listado de Fichas</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="p-6 bg-gray-100">
+{% extends 'layouts/base.html' %}
+{% load static %}
 
+{% block content %}
+<style>
+  body {
+    background-image: url("{% static 'img/antropologia.jpg' %}");
+    background-size: cover;
+    background-position: center;
+  }
+  .coleccion-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #d1d5db; /* gray-300 */
+  }
+  .coleccion-nombre {
+    white-space: nowrap;
+    overflow: visible;
+  }
+</style>
 
-{% if messages %}
-  <div id="messages" class="fixed inset-0 flex items-center justify-center z-50">
-    {% for message in messages %}
-      <div class="bg-green-100 border-4 border-green-400 text-green-800 px-8 py-6 rounded-lg shadow-lg relative w-full max-w-md mx-auto" style="min-height: 150px;">
-        <span class="block text-center text-lg font-semibold">{{ message }}</span>
-        <button onclick="document.getElementById('messages').remove()" 
-                class="absolute top-2 right-2 text-green-700 hover:text-red-500">
-          ✖
-        </button>
+<div class="min-h-screen bg-black bg-opacity-50">
+
+  <!-- Header con título -->
+  <header class="py-5 bg-red-400">
+    <div class="max-w-[90%] mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <ion-icon name="arrow-back-outline" class="text-2xl text-white"></ion-icon>
+        <a href="{% url 'cuentas:colecciones' %}" class="text-white font-semibold pb-1 border-b border-red-400 hover:border-black">Volver atrás</a>
       </div>
-    {% endfor %}
-  </div>
-{% endif %}
+      <h3 class="text-5xl text-center text-white font-bold">Antropología</h3>
+      <div></div>
+    </div>
+  </header>
 
+  <!-- Contenedor principal centrado y con estilo -->
+<div class="max-w-6xl mx-auto bg-white bg-opacity-90 p-6 mt-6 rounded-lg shadow-lg">
 
-
-
-  <!-- Encabezado -->
-<body class="p-6 bg-gray-100">
-
-  <!-- Botón Volver al Menú -->
-  
-<!-- Botón Volver al menú (idéntico al de formulario.html) -->
-<div class="flex justify-end mb-2">
-  <a href="{% url 'cuentas:profile' %}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-    <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-         xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-    </svg>
-    Inicio
-  </a>
-</div>
-
-
-
+ 
 
   <!-- Encabezado -->
   <div class="flex justify-between items-center mb-4">
     <h1 class="text-2xl font-bold">📋 Listado de Fichas Registradas</h1>
-    <a href="{% url 'fichas:cargar_ficha' %}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-      ➕ Nueva Ficha
-    </a>
+    <a href="{% url 'fichas:cargar_ficha' %}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">➕ Nueva Ficha</a>
   </div>
-
 
   <!-- Formulario de eliminación -->
   <form id="formEliminar" method="POST" action="{% url 'fichas:eliminar_fichas' %}">
     {% csrf_token %}
-    <div class="overflow-x-auto">
-      <table class="min-w-full bg-white border border-gray-300 shadow-sm rounded">
+      <div class="w-[95%] mx-auto overflow-x-auto">
+      <table class="w-full bg-white border border-gray-300 shadow-sm rounded">
         <thead class="bg-gray-200">
           <tr>
-            <th class="p-2 border text-center">
-              <input type="checkbox" id="checkAll">
-            </th>
+            <th class="p-2 border text-center"><input type="checkbox" id="checkAll"></th>
             <th class="p-2 border">N°</th>
             <th class="p-2 border">Nombre</th>
             <th class="p-2 border">Fecha</th>
@@ -79,7 +70,7 @@
               <td class="p-2 border">{{ ficha.nombre_descriptivo }}</td>
               <td class="p-2 border">{{ ficha.fecha_registro }}</td>
               <td class="p-2 border">
-                <a href="{% url 'ficha_detalle' ficha.id %}" class="text-blue-600 hover:underline">Ver / Editar</a>
+                <a href="{% url 'fichas:ficha_detalle' ficha.id %}" class="text-blue-600 hover:underline">Ver / Editar</a>
               </td>
             </tr>
           {% endfor %}
@@ -95,53 +86,35 @@
     </div>
   </form>
 
-  <!-- Modal de confirmación -->
-  <div id="modalConfirmacion" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white p-6 rounded shadow-md max-w-md w-full">
-      <h2 class="text-xl font-bold mb-4">¿Confirmar eliminación?</h2>
-      <p class="mb-6">¿Estás seguro de que deseas eliminar los elementos seleccionados? Esta acción no se puede deshacer.</p>
-      <div class="flex justify-end space-x-4">
-        <button type="button" id="btnCancelar" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Cancelar</button>
-        <button type="submit" form="formEliminar" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Aceptar</button>
-      </div>
-    </div>
-  </div>
+</div> <!-- Cierre del contenedor estilizado -->
 
-  <!-- Script de comportamiento -->
-  <script>
-    const checkAll = document.getElementById('checkAll');
-    const checkboxes = document.querySelectorAll('.checkboxFicha');
-    const btnEliminar = document.getElementById('btnEliminar');
-    const modal = document.getElementById('modalConfirmacion');
-    const btnCancelar = document.getElementById('btnCancelar');
+<script>
+  const checkAll = document.getElementById('checkAll');
+  const checkboxes = document.querySelectorAll('.checkboxFicha');
+  const btnEliminar = document.getElementById('btnEliminar');
+  const modal = document.getElementById('modalConfirmacion');
+  const btnCancelar = document.getElementById('btnCancelar');
 
-    // Marcar/desmarcar todos
-    checkAll.addEventListener('change', () => {
-      checkboxes.forEach(cb => cb.checked = checkAll.checked);
-      toggleBoton();
-    });
+  checkAll.addEventListener('change', () => {
+    checkboxes.forEach(cb => cb.checked = checkAll.checked);
+    toggleBoton();
+  });
 
-    // Habilitar botón si al menos un checkbox está marcado
-    checkboxes.forEach(cb => cb.addEventListener('change', toggleBoton));
+  checkboxes.forEach(cb => cb.addEventListener('change', toggleBoton));
 
-    function toggleBoton() {
-      const haySeleccion = [...checkboxes].some(cb => cb.checked);
-      btnEliminar.disabled = !haySeleccion;
-      btnEliminar.classList.toggle('opacity-50', !haySeleccion);
-      btnEliminar.classList.toggle('cursor-not-allowed', !haySeleccion);
-    }
+  function toggleBoton() {
+    const haySeleccion = [...checkboxes].some(cb => cb.checked);
+    btnEliminar.disabled = !haySeleccion;
+    btnEliminar.classList.toggle('opacity-50', !haySeleccion);
+    btnEliminar.classList.toggle('cursor-not-allowed', !haySeleccion);
+  }
 
-    // Mostrar el modal de confirmación
-    btnEliminar.addEventListener('click', () => {
-      modal.classList.remove('hidden');
-    });
+  btnEliminar.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+  });
 
-    // Cancelar la eliminación
-    btnCancelar.addEventListener('click', () => {
-      modal.classList.add('hidden');
-    });
-  </script>
-
-</body>
-</html>
-
+  btnCancelar.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+</script>
+{% endblock %}

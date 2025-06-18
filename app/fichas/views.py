@@ -10,7 +10,7 @@ def cargar_ficha(request):
         if form.is_valid():
             ficha = form.save()
             # Redirigimos al detalle con un mensaje
-            return redirect('ficha_detalle', ficha_id=ficha.id)
+            return redirect('fichas:ficha_detalle', ficha_id=ficha.id)
     else:
         form = FichaForm()
     return render(request, 'fichas/formulario.html', {'form': form})

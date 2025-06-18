@@ -21,7 +21,7 @@
 <script>
   // Redirigir después de 2.5 segundos
   let redirTimer = setTimeout(() => {
-    window.location.href = "{% url 'lista_fichas' %}";
+    window.location.href = "{% url 'fichas:lista_fichas' %}";
   }, 2500);
 
   // Si se cierra manualmente, cancelar redirección
@@ -144,7 +144,7 @@
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
           Guardar/Finalizar
         </button>
-        <a href="{% url 'lista_fichas' %}" class="text-blue-600 hover:underline">
+        <a href="{% url 'fichas:lista_fichas' %}" class="text-blue-600 hover:underline">
           ← Volver al listado
         </a>
       </div>

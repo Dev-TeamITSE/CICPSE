@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.Python
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+/staticfiles/
+/media/
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Env files
+.env

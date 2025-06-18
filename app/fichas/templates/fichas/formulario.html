@@ -1,22 +1,47 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Ficha Patrimonial - Carga</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 min-h-screen p-8">
+{% extends 'layouts/base.html' %}
+{% load static %}
 
+{% block content %}
+<style>
+  body {
+      height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url("{% static 'img/antropologia.jpg' %}");
+  background-repeat: repeat;       /* Esto hace que la imagen se repita horizontal y verticalmente */
+  background-position: top left;   /* Opcional, para que la imagen empiece a repetirse desde arriba a la izquierda */
+  background-size: cover;            /* Así la imagen mantiene su tamaño original y se repite */
+  background-color: #f0f0f0;       /* Pone un color de fondo si la imagen no alcanza (opcional) */
+}
+  .coleccion-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #d1d5db; /* gray-300 */
+  }
+  .coleccion-nombre {
+    white-space: nowrap;
+    overflow: visible;
+  }
+</style>
 
+<div class="min-h-screen bg-black bg-opacity-50">
+
+  <!-- Header con título -->
+  <header class="py-5 bg-red-400">
+    <div class="max-w-[90%] mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <ion-icon name="arrow-back-outline" class="text-2xl text-white"></ion-icon>
+        <a href="{% url 'fichas:lista_fichas' %}" class="text-white font-semibold pb-1 border-b border-red-400 hover:border-black">Volver atrás</a>
+      </div>
+      <h3 class="text-5xl text-center text-white font-bold">Antropología</h3>
+      <div></div>
+    </div>
+  </header>
  <!-- Botón Volver al menú (idéntico al de formulario.html) -->
 <div class="flex justify-end mb-2">
-  <a href="{% url 'cuentas:profile' %}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-    <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-         xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-    </svg>
-    Inicio
-  </a>
+  
 </div>
 
 
@@ -40,72 +65,73 @@
 
       {% csrf_token %}
 
-      <!-- BLOQUE 1: Datos de Identificación -->
-      <details open class="mb-6 border rounded p-4">
-        <summary class="text-lg font-semibold cursor-pointer">📄 Datos de Identificación</summary>
-        <div class="mt-4 space-y-4">
+     <!-- BLOQUE 1: Datos de Identificación -->
+<div class="w-[95%] mx-auto bg-white p-6 rounded-lg shadow mb-6">
+  <details open class="mb-6 border rounded p-4">
+    <summary class="text-lg font-semibold cursor-pointer">📄 Datos de Identificación</summary>
 
-          <div>
-            <label for="nro_id" class="block text-sm font-medium text-gray-700">N°</label>
-            <input type="number" name="nro_id" id="nro_id" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-          </div>
+    <div>
+      <label for="nro_id" class="block text-sm font-medium text-gray-700">N°</label>
+      <input type="number" name="nro_id" id="nro_id" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+    </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label for="sigla_cicpse" class="block text-sm font-medium text-gray-700">N° de sigla CICPSE</label>
-              <input type="number" name="sigla_cicpse" id="sigla_cicpse" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-            </div>
-            <div>
-              <label for="sigla_renicoa" class="block text-sm font-medium text-gray-700">Sigla RENICOA</label>
-              <input type="text" name="sigla_renicoa" id="sigla_renicoa" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-            </div>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label for="sigla_cicpse" class="block text-sm font-medium text-gray-700">N° de sigla CICPSE</label>
+        <input type="number" name="sigla_cicpse" id="sigla_cicpse" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+      </div>
+      <div>
+        <label for="sigla_renicoa" class="block text-sm font-medium text-gray-700">Sigla RENICOA</label>
+        <input type="text" name="sigla_renicoa" id="sigla_renicoa" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+      </div>
+    </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label for="otros_nros" class="block text-sm font-medium text-gray-700">Otros N° de registro</label>
-              <input type="text" name="otros_nros" id="otros_nros" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-            </div>
-            <div>
-              <label for="nombre_coleccion" class="block text-sm font-medium text-gray-700">Nombre de la colección</label>
-              <input type="text" name="nombre_coleccion" id="nombre_coleccion" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-            </div>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label for="otros_nros" class="block text-sm font-medium text-gray-700">Otros N° de registro</label>
+        <input type="text" name="otros_nros" id="otros_nros" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+      </div>
+      <div>
+        <label for="nombre_coleccion" class="block text-sm font-medium text-gray-700">Nombre de la colección</label>
+        <input type="text" name="nombre_coleccion" id="nombre_coleccion" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+      </div>
+    </div>
 
-          <div>
-            <label for="nombre_descriptivo" class="block text-sm font-medium text-gray-700">Nombre descriptivo</label>
-            <input type="text" name="nombre_descriptivo" id="nombre_descriptivo" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-          </div>
+    <div>
+      <label for="nombre_descriptivo" class="block text-sm font-medium text-gray-700">Nombre descriptivo</label>
+      <input type="text" name="nombre_descriptivo" id="nombre_descriptivo" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+    </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label for="tipo_material" class="block text-sm font-medium text-gray-700">Tipo de material</label>
-              <input type="text" name="tipo_material" id="tipo_material" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-            </div>
-            <div>
-              <label for="anio_coleccion" class="block text-sm font-medium text-gray-700">Año de colección</label>
-              <input type="text" name="anio_coleccion" id="anio_coleccion" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-            </div>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label for="tipo_material" class="block text-sm font-medium text-gray-700">Tipo de material</label>
+        <input type="text" name="tipo_material" id="tipo_material" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+      </div>
+      <div>
+        <label for="anio_coleccion" class="block text-sm font-medium text-gray-700">Año de colección</label>
+        <input type="text" name="anio_coleccion" id="anio_coleccion" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+      </div>
+    </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label for="forma_ingreso" class="block text-sm font-medium text-gray-700">Forma de ingreso</label>
-              <input type="text" name="forma_ingreso" id="forma_ingreso" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-            </div>
-            <div>
-              <label for="ubicacion" class="block text-sm font-medium text-gray-700">Ubicación</label>
-              <input type="text" name="ubicacion" id="ubicacion" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
-            </div>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label for="forma_ingreso" class="block text-sm font-medium text-gray-700">Forma de ingreso</label>
+        <input type="text" name="forma_ingreso" id="forma_ingreso" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+      </div>
+      <div>
+        <label for="ubicacion" class="block text-sm font-medium text-gray-700">Ubicación</label>
+        <input type="text" name="ubicacion" id="ubicacion" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+      </div>
+    </div>
 
-          <div>
-            <label for="otros_datos" class="block text-sm font-medium text-gray-700">Otros datos</label>
-            <textarea name="otros_datos" id="otros_datos" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md p-2"></textarea>
-          </div>
+    <div>
+      <label for="otros_datos" class="block text-sm font-medium text-gray-700">Otros datos</label>
+      <textarea name="otros_datos" id="otros_datos" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md p-2"></textarea>
+    </div>
 
-        </div>
-      </details>
+  </details>
+
+
 
       <!-- BLOQUE 2: Datos de Procedencia -->
       <details class="mb-6 border rounded p-4">
@@ -362,47 +388,49 @@
     </div>
 
   </div>
+
 </details>
 
 <!-- BLOQUE 7: Fotografias -->
-<details class="mb-6 border rounded p-4">
-  <summary class="text-lg font-semibold cursor-pointer">📷 Fotografías</summary>
+  <details class="mb-6 border rounded p-4">
+    <summary class="text-lg font-semibold cursor-pointer">📷 Fotografías</summary>
 
-  <div class="mt-4 space-y-4">
+    <div class="mt-4 space-y-4">
 
-    <!-- Foto sin intervención -->
-    <div>
-      <label for="foto_sin_intervencion" class="block text-sm font-medium text-gray-700">Del objeto sin intervención</label>
-      <input type="file" name="foto_sin_intervencion" id="foto_sin_intervencion"
-        accept="image/*"
-        class="mt-1 block w-full text-sm text-gray-700 file:border file:border-gray-300 file:p-2">
+      <!-- Foto sin intervención -->
+      <div>
+        <label for="foto_sin_intervencion" class="block text-sm font-medium text-gray-700">Del objeto sin intervención</label>
+        <input type="file" name="foto_sin_intervencion" id="foto_sin_intervencion"
+          accept="image/*"
+          class="mt-1 block w-full text-sm text-gray-700 file:border file:border-gray-300 file:p-2">
+      </div>
+
+      <!-- Foto intervenido -->
+      <div>
+        <label for="foto_intervenido" class="block text-sm font-medium text-gray-700">Del objeto intervenido</label>
+        <input type="file" name="foto_intervenido" id="foto_intervenido"
+          accept="image/*"
+          class="mt-1 block w-full text-sm text-gray-700 file:border file:border-gray-300 file:p-2">
+      </div>
+
+      <!-- Foto de rótulos -->
+      <div>
+        <label for="foto_rotulos" class="block text-sm font-medium text-gray-700">Rótulos / Detalles</label>
+        <input type="file" name="foto_rotulos" id="foto_rotulos"
+          accept="image/*"
+          class="mt-1 block w-full text-sm text-gray-700 file:border file:border-gray-300 file:p-2">
+      </div>
+
+      <!-- Otras fotografías -->
+      <div>
+        <label for="otras_fotografias" class="block text-sm font-medium text-gray-700">Otras fotografías</label>
+        <input type="file" name="otras_fotografias" id="otras_fotografias"
+          accept="image/*"
+          class="mt-1 block w-full text-sm text-gray-700 file:border file:border-gray-300 file:p-2">
+      </div>
+
     </div>
 
-    <!-- Foto intervenido -->
-    <div>
-      <label for="foto_intervenido" class="block text-sm font-medium text-gray-700">Del objeto intervenido</label>
-      <input type="file" name="foto_intervenido" id="foto_intervenido"
-        accept="image/*"
-        class="mt-1 block w-full text-sm text-gray-700 file:border file:border-gray-300 file:p-2">
-    </div>
-
-    <!-- Foto de rótulos -->
-    <div>
-      <label for="foto_rotulos" class="block text-sm font-medium text-gray-700">Rótulos / Detalles</label>
-      <input type="file" name="foto_rotulos" id="foto_rotulos"
-        accept="image/*"
-        class="mt-1 block w-full text-sm text-gray-700 file:border file:border-gray-300 file:p-2">
-    </div>
-
-    <!-- Otras fotografías -->
-    <div>
-      <label for="otras_fotografias" class="block text-sm font-medium text-gray-700">Otras fotografías</label>
-      <input type="file" name="otras_fotografias" id="otras_fotografias"
-        accept="image/*"
-        class="mt-1 block w-full text-sm text-gray-700 file:border file:border-gray-300 file:p-2">
-    </div>
-
-  </div>
 </details>
 
 
@@ -410,13 +438,15 @@
 
 
       <!-- BOTÓN -->
-      <div class="pt-4">
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          Guardar ficha
-        </button>
-      </div>
+      <div class="pt-4 flex justify-center">
+  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    Guardar ficha
+  </button>
+</div>
 
     </form>
   </div>
+</div>  
 </body>
 </html>
+{% endblock %}
