@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<h2 class="text-xl font-semibold">Ficha N° {{ ficha.nro_id }}</h2>
+<div class="p-4 bg-white shadow-md rounded space-y-2">
+    <p><strong>Nombre colección:</strong> {{ ficha.nombre_coleccion }}</p>
+    <p><strong>Tipo de material:</strong> {{ ficha.tipo_material }}</p>
+    <p><strong>Ubicación:</strong> {{ ficha.ubicacion }}</p>
+    <p><strong>Descripción:</strong> {% if ficha.descripcion %} {{ ficha.descripcion }} {% else %} No disponible {% endif %}</p>
+    <p><strong>Estado de conservación:</strong> 
+        <span class="{% if ficha.estado_conservacion == 'Bueno' %} text-green-600 
+                      {% elif ficha.estado_conservacion == 'Regular' %} text-yellow-600 
+                      {% else %} text-red-600 {% endif %}">
+            {{ ficha.estado_conservacion }}
+        </span>
+    </p>
+    <p><strong>Fecha de Registro:</strong> {{ ficha.fecha_registro|date:"d/m/Y" }}</p>
+</div>
+{% endblock %}

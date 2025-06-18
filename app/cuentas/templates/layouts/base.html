@@ -31,7 +31,6 @@
           Bienvenido &nbsp; <strong>{{ request.user.nombre }} {{ request.user.apellido }}</strong>
         </a>
 
-        <a class="navbar-item" href="/news/"> Noticias </a>
         <a class="navbar-item" href="/profile/"> Colecciones </a>
         <a class="navbar-item" href="/update_password/"> Cambiar contraseña </a>
 
@@ -53,7 +52,7 @@
         {% endif %}
 
         {% if request.user.area == "Historia" or request.user.area == "Bellas Artes" or request.user.is_superuser %}
-        <a class="navbar-item" href="#"> Emi aqui carga para que redireccione </a>
+        <a class="navbar-item" href="#"> Cargar Ficha </a>
         {% endif %}
       </div>
       

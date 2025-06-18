@@ -1,0 +1,45 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center overflow-auto">
+  <div class="w-full md:w-3/4 flex justify-center items-center bg-white shadow-lg rounded-lg p-8">
+    <div class="flex flex-col justify-center items-center menu">
+      <!-- Título principal -->
+      <div class="mb-5 text-center">
+        <h1 class="text-4xl font-bold">Centro de Interpretación y Conservación del Patrimonio de Santiago del Estero (CICPSE)</h1>
+        <h2 class="text-xl font-semibold text-center">Ficha de Registro Interna para Identificación de Objetos</h2>
+      </div>
+
+      <!-- Formulario de Registro -->
+      <form id="nroId" class="contenedor-boton space-y-4" method="POST" action="{% url 'ficha_antropologia:ficha' %}">
+        {% csrf_token %}
+        <div class="container-formularios">
+          <label>N°: <input type="number" name="nro_id" required class="border rounded p-2"></label>
+          <!-- Datos de Identificación -->
+          <div class="border rounded-lg p-4 mt-4">
+            <h3 class="text-xl font-semibold cursor-pointer hover:text-blue-600">Datos de Identificación</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <label>N° de sigla CICPSE: <input type="number" name="nro_sigla_cicpse" required class="border rounded p-2"></label>
+              <label>Nombre de la colección: <input type="text" name="nombre_coleccion" required class="border rounded p-2"></label>
+              <label>Sigla RENICOA: <input type="text" name="siglaRenicoa" class="border rounded p-2"></label>
+              <label>Otros N° de registro: <input type="text" name="otrosNroRegistro" class="border rounded p-2"></label>
+              <label>Nombre descriptivo: <input type="text" name="nombreDescriptivo" class="border rounded p-2"></label>
+              <label>Tipo de material: <input type="text" name="tipoMaterial" required class="border rounded p-2"></label>
+              <label>Año de colección: <input type="text" name="anioColeccion" class="border rounded p-2"></label>
+              <label>Forma de ingreso: <input type="text" name="formaIngreso" required class="border rounded p-2"></label>
+              <label>Ubicación: <input type="text" name="ubicacion" required class="border rounded p-2"></label>
+              <label>Otros datos: <input type="text" name="otrosDatos" class="border rounded p-2"></label>
+            </div>
+          </div>
+        </div>
+
+       <button type="submit" class="button btn-primary mt-4">Cargar</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/script.js' %}" defer></script>
+{% endblock %}
